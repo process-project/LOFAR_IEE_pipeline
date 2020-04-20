@@ -1,0 +1,168 @@
+{
+    "IEEFACTOR": {
+        "label": "LOFAR IEE pipeline",
+        "schema": {
+            "type": "object",
+            "title": "Configuration Parameters:",
+            "description": "This is PROCESS UC2 IEE pipeline for LOFAR observation calibration and imaging",
+            "properties": {
+                "staging": {
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                            "type": "string",
+                            "title": "Staging service URL",
+                            "default": "http://145.100.130.145:32010",
+                            "readonly": true
+                        },
+                        "login": {
+                            "type": "string",
+                            "title": "User login on LTA",
+                            "default": "souley",
+                            "readonly": true
+                        },
+                        "pwd": {
+                            "type": "string",
+                            "title": "User pass on LTA",
+                            "default": "O9v4cE1vy",
+                            "readonly": true
+                        }
+                    },
+                    "required": [
+                        "url",
+                        "login",
+                        "pwd"
+                    ],
+                    "collapsed": true,
+                    "propertyOrder": 3
+                },
+                "hpc": {
+                    "type": "object",
+                    "properties": {
+                        "headnode": {
+                            "type": "string",
+                            "title": "HPC head node",
+                            "default": "pro.cyfronet.pl"
+                        },
+                        "path": {
+                            "type": "string",
+                            "title": "Where observation will be transferred to on HPC",
+                            "default": "/net/archive/groups/plggprocess/UC2"
+                        },
+                        "url": {
+                            "type": "string",
+                            "title": "Download service URL",
+                            "default": "http://lobcder.process-project.eu:8090"
+                        },
+                        "srmcert": {
+                            "type": "string",
+                            "title": "SRM certificate for transfer",
+                            "default": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUx2VENDQ3FXZ0F3SUJBZ0lFTmdHRlNUQU5CZ2txaGtpRzl3MEJBUXNGQURDQm9qRVRNQkVHQ2dtU0pvbVQKOGl4a0FSa1dBMjl5WnpFV01CUUdDZ21TSm9tVDhpeGtBUmtXQm5SbGNtVnVZVEVUTUJFR0NnbVNKb21UOGl4awpBUmtXQTNSamN6RUxNQWtHQTFVRUJoTUNUa3d4SXpBaEJnTlZCQW9UR2xWdWFYWmxjbk5wZEdWcGRDQjJZVzRnClFXMXpkR1Z5WkdGdE1Td3dLZ1lEVlFRRERDTlNiMkp2ZENBdElGTXVJRTFoWkc5MVoyOTFJSE50WVdSdmRXY3gKUUhWMllTNXViREFlRncweU1EQTBNRGt4TlRJek16RmFGdzB5TURBME1UWXhOVEl6TXpGYU1JRzJNUk13RVFZSwpDWkltaVpQeUxHUUJHUllEYjNKbk1SWXdGQVlLQ1pJbWlaUHlMR1FCR1JZR2RHVnlaVzVoTVJNd0VRWUtDWkltCmlaUHlMR1FCR1JZRGRHTnpNUXN3Q1FZRFZRUUdFd0pPVERFak1DRUdBMVVFQ2hNYVZXNXBkbVZ5YzJsMFpXbDAKSUhaaGJpQkJiWE4wWlhKa1lXMHhMREFxQmdOVkJBTU1JMUp2WW05MElDMGdVeTRnVFdGa2IzVm5iM1VnYzIxaApaRzkxWnpGQWRYWmhMbTVzTVJJd0VBWURWUVFERXdrNU1EWXdOamt6TWpFd2daOHdEUVlKS29aSWh2Y05BUUVCCkJRQURnWTBBTUlHSkFvR0JBTENvSTZJU3lxYVFMK3NqekJrdVNDUWlCcnR3QldRZUR4aVdYd05pNmFHc2puZUcKN1gyYitWdHlENlRCVXZBdzJaQ1hvaWJ2SW1OM2dxU3J0c05xM0cyaEZMazlWL0dWKzhBUlF1Mmg0TXN6WTlZKwpXWVVqWnhSU3ArWk1TY2RmMGdEajlOL3krWWhiYkdVM0xEZnpBaEg5bTEzUWxrNncxWTJBTlA1ZVdsVkZBZ01CCkFBR2pnZ2huTUlJSVl6QU9CZ05WSFE4QkFmOEVCQU1DQkxBd0hRWUlLd1lCQlFVSEFRNEJBZjhFRGpBTU1Bb0cKQ0NzR0FRVUZCeFVCTUlJSU1BWUtLd1lCQkFHK1JXUmtCUVNDQ0NBd2dnZ2NNSUlJR0RDQ0NCUXdnZ2I4QWdFQgpNSUhBb0lHOU1JR29wSUdsTUlHaU1STXdFUVlLQ1pJbWlaUHlMR1FCR1JZRGIzSm5NUll3RkFZS0NaSW1pWlB5CkxHUUJHUllHZEdWeVpXNWhNUk13RVFZS0NaSW1pWlB5TEdRQkdSWURkR056TVFzd0NRWURWUVFHRXdKT1RERWoKTUNFR0ExVUVDaE1hVlc1cGRtVnljMmwwWldsMElIWmhiaUJCYlhOMFpYSmtZVzB4TERBcUJnTlZCQU1NSTFKdgpZbTkwSUMwZ1V5NGdUV0ZrYjNWbmIzVWdjMjFoWkc5MVp6RkFkWFpoTG01c0FoQUNoUzg0YnNISWQyQWQvU051Cnd2cFVvRmd3VnFSVU1GSXhFakFRQmdOVkJBb1RDV1IxZEdOb1ozSnBaREVPTUF3R0ExVUVDaE1GYUc5emRITXgKRURBT0JnTlZCQXNUQjNOaGNtRXVibXd4R2pBWUJnTlZCQU1URVhadmJYTXVaM0pwWkM1ellYSmhMbTVzTUEwRwpDU3FHU0liM0RRRUJDd1VBQWhCZnVWR1U1NDVQdklmQUttZlJkaUwyTUNJWUR6SXdNakF3TkRBNU1UVXlNek13CldoZ1BNakF5TURBME1UWXhOVEl6TXpCYU1JR0FNSDRHQ2lzR0FRUUJ2a1ZrWkFReGNEQnVvQ0dHSDJ4dlptRnkKT2k4dmRtOXRjeTVuY21sa0xuTmhjbUV1Ym13Nk16QXdNVGt3U1FRbEwyeHZabUZ5TDNWelpYSXZVbTlzWlQxTwpWVXhNTDBOaGNHRmlhV3hwZEhrOVRsVk1UQVFnTDJ4dlptRnlMMUp2YkdVOVRsVk1UQzlEWVhCaFltbHNhWFI1ClBVNVZURXd3Z2dVUU1JSUU0QVlLS3dZQkJBRytSV1JrQ2dTQ0JOQXdnZ1RNTUlJRXlEQ0NCTVF3Z2dPc29BTUMKQVFJQ0FoVTdNQTBHQ1NxR1NJYjNEUUVCQ3dVQU1GSXhDekFKQmdOVkJBWVRBazVNTVE4d0RRWURWUVFLRXdaTwpTVXRJUlVZeE1qQXdCZ05WQkFNVEtVNUpTMGhGUmlCdFpXUnBkVzB0YzJWamRYSnBkSGtnWTJWeWRHbG1hV05oCmRHbHZiaUJoZFhSb01CNFhEVEU1TVRJeE9EQXdNREF3TUZvWERUSXdNVEl4TnpFMk16UTFOVm93VWpFU01CQUcKQTFVRUNoTUpaSFYwWTJobmNtbGtNUTR3REFZRFZRUUtFd1ZvYjNOMGN6RVFNQTRHQTFVRUN4TUhjMkZ5WVM1dQpiREVhTUJnR0ExVUVBeE1SZG05dGN5NW5jbWxrTG5OaGNtRXVibXd3Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBCkE0SUJEd0F3Z2dFS0FvSUJBUURGeGliRFBBRUhjUUliSncwS3VaUDNUNjFtQW5iNSsxVjJZeVpKQjgraGkvZmYKQVc4WlBvNzk0NndqMTV5UzYxT3UyNWZ4TXhCWVFxcFVoQm02dlgxeEZxVDFsTHdYQzlWbmh5Sy9GdW9XSlRkQwpCK0doNjE3ckpTTFBjakNPT0Q2RVdVR3ZPeDBzUVg2R3g2ODA5cjQ3amVUc1IzbEc5VzR6N0VoSTB1S0RQb0NsCnlKTHBsR0NhZ0hiZ2tFSXlvMGNsRmRvSUlLVDRHV3NDQnFyZllWRTZPV2pCUjEyamd4ekwxbjMybUM3VFdGNksKcWJHSG83U1NWbzQvY3NuZm04amk5Ry8zVFJwcUc5NTllSm94VHVPNC9jMGVoSUlMaUdKbGREcTNRSCtaZ0xkdApmZnVJalA3VHBCOU1idjBZcS9iUk5McGQzemx5VVNZK1R6TG04TVU3QWdNQkFBR2pnZ0dpTUlJQm5qQU1CZ05WCkhSTUJBZjhFQWpBQU1BNEdBMVVkRHdFQi93UUVBd0lFc0RBbkJnTlZIU1VFSURBZUJnZ3JCZ0VGQlFjREFRWUkKS3dZQkJRVUhBd0lHQ0NzR0FRVUZCd01FTURnR0ExVWRId1F4TUM4d0xhQXJvQ21HSjJoMGRIQTZMeTlqWVM1awpkWFJqYUdkeWFXUXVibXd2YldWa2FYVnRMMk5oWTNKc0xtUmxjakFvQmdOVkhTQUVJVEFmTUE4R0RTc0dBUVFCCjBVSUVBZ0lCQXdNd0RBWUtLb1pJaHZkTUJRSUNBVEFmQmdOVkhTTUVHREFXZ0JSYkJUcVp4dFVpdmYyVWdQd1IKcU5EeGNkWkxwREFkQmdOVkhRNEVGZ1FVRTJvQkRCZDRqbUo3RlB3eHA0Z1gyZFdnZmtvd2daSUdDV0NHU0FHRworRUlCRFFTQmhCYUJnVVZGUXlCcGMzTjFaV1FnZFc1a1pYSWdjRzlzYVdONUlIWmxjbk5wYjI0Z015NHpJQzBnClptOXlJR052Ym1ScGRHbHZibk1nYzJWbElHaDBkSEE2THk5allTNWtkWFJqYUdkeWFXUXVibXd2YldWa2FYVnQKTDNCdmJHbGplUzhnTFNCRFpYSjBhV1pwWTJGMFpTQlVZV2M2SUdZM1lqUmpObVZtTFdNMVl6WXlOakFjQmdOVgpIUkVFRlRBVGdoRjJiMjF6TG1keWFXUXVjMkZ5WVM1dWJEQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFZeTM4Cit3WGN0U2hlN0tpUDhReENNKzBzT0ZLT203RDBqNjNyVSsxaVZ0dEk3Y3FFbjlLY0dSRVlhc1RuZHg1YjlSc00KVGV5dDlKeUZiMWtHaEdVUktmYmhGQ0M0SzhlSXNISStQelVyUlpkUVZzcjBieVVSWlh3R1MxK2ZMZFo2QXJXRApZeU4vazJ2bWxGdXVGSno2cDI0cFFOUDQ2cnZWLzhGZ0VITjF0dlZzMTcxeTc0dm1vaFgrV0hUU2p1eTBOYkxKCkEzalN6bkVZNnZkclQ0aG1kWlJyME1HYkdUMjRwTEFxeFRRMnB6WEpHV0RNcXE1dFc4c0RlSG1FMWF4NFh5SWwKU0VoRy9nV3NpSnkxUVc3MWJWY3lYeDVvb05JMlVITEQ1ZFFaRWhNSkFxQlp4U1VRczBnUUwrTzlCcmFVNjhxRApzb0NQVEREOVU4MUFyRlNNNnpBSkJnTlZIVGdFQWdVQU1COEdBMVVkSXdRWU1CYUFGQk5xQVF3WGVJNWlleFQ4Ck1hZUlGOW5Wb0g1S01BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQ1FXMGM0LzE2U0dnN1VxUWdibmNLWDFPdVcKNWRQUGJrK0FqQmJrcjR4Wkd3aDNoL1Y1UmZWT0RZK2MxRWo2d1lMTXFBVkZvT3NnTVpDazB1Tm12NXc0Tzh6bwpmcWF3MEhKWU11WTZSa3dvZHlTNlR1N3NWSDVJQm5Hd2lteGcvOVh2cWxIU1ZsVkRsOXhNMzNDN2c3TXNrUDA4CmdHRnovSE5pYmw4REdmZEF6UlM1Mnk3NTZWMXRub3ZobnJjVGZtQjgzcUl3MXdoUVV3LzE5VUpDSmdPcUo0UVUKUERsUDByb2ljUXZyeDRCUlA0a0ZGV1BRL3FsOCt1QXluWlE0TEh5U2xNczJSVmU3cWpUc1B4UHpabk94RTZqRworcnlCMEdCYnZPWlBQSTBNTmJpRUdaczg5a1dnbEJzUGphOEI5Y2QyaFJjQmxmSXdoekNscjFBNWZTZHRNQTBHCkNTcUdTSWIzRFFFQkN3VUFBNElCQVFBbXVmU3FoV3d6RWorUFFJaUVSbVl2dlJ2a1dZdDBQV1gxSGcrMTVoMDEKUnhjV2NqdDFyMWkvaDlKTEpvT0F5VE95Mmg4MWVjQUdwMVFRWEFJbGZVYnQ4NmMveWxyOVovNFJ0bGhvU2xicwpLMW95TmJQYmpGMFBucndQL2plb0JLOGI5SmpleWRVNng0QjYzakEzdVVyczlkWUJ6NkM3MnJhME1QQ0tKNzFiCmlsNGsxNGFiRi9ySGpyUkFSOGxTaG0weTdVMm8wY2RoSTdleWdVRUxQM2dBcVBOU2tZajBmNlMxUFdwTlBCUGQKRDJ3Qk45bzhzSkZYaGNVRFM3N1IwYThUa2J5amN6SG00Q0pJQlJ2MGRkczM4UHhSbGQ4L29kV1NZYVhIUy82ZAo1NTZ6L2hpd0tXTklqcnd6OGU2NG1RTHhiMlNhL1dCekV3di9OQWFybEl1MAotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCi0tLS0tQkVHSU4gUlNBIFBSSVZBVEUgS0VZLS0tLS0KTUlJQ1hRSUJBQUtCZ1FDd3FDT2lFc3Fta0Mvckk4d1pMa2drSWdhN2NBVmtIZzhZbGw4RFl1bWhySTUzaHUxOQptL2xiY2cra3dWTHdNTm1RbDZJbTd5SmpkNEtrcTdiRGF0eHRvUlM1UFZmeGxmdkFFVUx0b2VETE0yUFdQbG1GCkkyY1VVcWZtVEVuSFg5SUE0L1RmOHZtSVcyeGxOeXczOHdJUi9adGQwSlpPc05XTmdEVCtYbHBWUlFJREFRQUIKQW9HQkFJdjUzcW80aTV5cFdWN1BNWlN1U0hsaEFNYWFmNXNSK2xJNExEY0p0Q2ZvQzhjSUFieHF6NDIyOWxCTQo0d1B4SVNOaUV4a1ltTDRKMzFuTnVmWmtBUjRHekU2Y3N4TzRGcE5FbkpMWmxTenR2NU1TRFViMEtaM0dJY0liCkpQdGE5NFhKdUtURk1CTWpmQXFTMDdBbWF4OG5ucFhNVnZUR1FFODNXMU9UMW94QkFrRUE1cFNTVnJqeERwdzMKWEpiazZVOU9kY1hQSURmLzdYdWxyWVN1TDRSWkIxZGNIcytHZHIzMFVzM29MRlBlMVo1cExGNy9JOWJlNjk2SQozNUZuTnljbk5RSkJBTVFodlRyN1JDdDlibmtyaFlTdWxKbnhWbWZZT3BkRUNUU2xoeExYbHdsWXJhL2FGL2JMCkgyK2ZJa3VNTEQ1QUE1eGlkeDlBNytudTRhL0pJRmJKWjlFQ1FIU21aeDR1YysxRFJKSzMxOWpjZ1VIOXI1cUsKR2hTSHdEcDNiRE9uemU1ejJLdlJxeUg1V1ZobXlQVmIvTml2U2wvak0wcHJVdDJhK0QyNmJyQXRRNTBDUUNrMQpsWmJ3K0cvUzJRVm9tWk01UTB2ZEkzU0tRRFZNUEVydGhLWDIybXRDVUt3a1BPakQ0UVVKQUtHekFCRE1UblhyClVuQWtxc1FTUnlVeU16TkkraUVDUVFEQVFZTmFxTWVJN3Q1eGNReE95bktkbTFmM01iTEtuRmhSRnVhOU8rV3UKSnRKS01uNXVCUFN0RUREVmE1VlpTQWdRS0NiMGEweStaSFpSb3RWRFR1VEwKLS0tLS1FTkQgUlNBIFBSSVZBVEUgS0VZLS0tLS0KLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZnakNDQkdxZ0F3SUJBZ0lRQW9Vdk9HN0J5SGRnSGYwamJzTDZWREFOQmdrcWhraUc5dzBCQVFzRkFEQnkKTVFzd0NRWURWUVFHRXdKT1RERVdNQlFHQTFVRUNCTU5UbTl2Y21RdFNHOXNiR0Z1WkRFU01CQUdBMVVFQnhNSgpRVzF6ZEdWeVpHRnRNUTh3RFFZRFZRUUtFd1pVUlZKRlRrRXhKakFrQmdOVkJBTVRIVlJGVWtWT1FTQmxVMk5wClpXNWpaU0JRWlhKemIyNWhiQ0JEUVNBek1CNFhEVEU1TURjd09EQXdNREF3TUZvWERUSXdNRGd3TnpFeU1EQXcKTUZvd2dhSXhFekFSQmdvSmtpYUprL0lzWkFFWkZnTnZjbWN4RmpBVUJnb0praWFKay9Jc1pBRVpGZ1owWlhKbApibUV4RXpBUkJnb0praWFKay9Jc1pBRVpGZ04wWTNNeEN6QUpCZ05WQkFZVEFrNU1NU013SVFZRFZRUUtFeHBWCmJtbDJaWEp6YVhSbGFYUWdkbUZ1SUVGdGMzUmxjbVJoYlRFc01Db0dBMVVFQXd3alVtOWliM1FnTFNCVExpQk4KWVdSdmRXZHZkU0J6YldGa2IzVm5NVUIxZG1FdWJtd3dnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBdwpnZ0VLQW9JQkFRRGV3dC9Jc0V3a2JweEt0YWVZcGhjU1hKaURhOGUwOUg2dnRocXQxVjkvbm1xWHBJemwxYVhVCi9zQ1hPbGxXdGhEZFhZSGNRWXNTbFFLVG5qWGRVWDVPeFhjK0lUcVdoc1M3MUR2Wnh5cG5wUG1nMXBrQWk4YTgKZzZtZGhPRXBteWgyRE4zZGUzbFlMcmYzc1VlRVZKa3ZlSDBmMDNFbzNGM21VRHpXWVltQjNoY1d3Ui95UlQvdQpwQ2NraVdhZXpnaEwwb05vNExYRVZqa3Qwcyt1MUZXMU1ma0dETmlBL0RSdjJFYmI4NDJSYWhVUXlPOG5FcG1iClQyZG01d1JMVXhSVko5UXlDd3FHR2Z1d2VlRXJlSDVJYUxRdCtnbTBWN0hWcm1hRnZQdU9mOVIza0J0S0pEMlYKNm4zbmh0QnNSU3l0Q0JBZ05tcGZIeDl2THR1T0dQb2ZBZ01CQUFHamdnSGhNSUlCM1RBZkJnTlZIU01FR0RBVwpnQlNNbnhFdTV1TjZCS1VlVll0R0NBU203WmR3cGpBZEJnTlZIUTRFRmdRVUg2WXYyRkVoQUNlZFliUlpKU08wCmZIdnpxVVl3REFZRFZSMFRBUUgvQkFJd0FEQWVCZ05WSFJFRUZ6QVZnUk56YldGa2IzVm5iM1ZBWjIxaGFXd3UKWTI5dE1BNEdBMVVkRHdFQi93UUVBd0lFc0RBVEJnTlZIU1VFRERBS0JnZ3JCZ0VGQlFjREFqQkRCZ05WSFNBRQpQREE2TUF3R0NpcUdTSWIzVEFVQ0FnRXdEUVlMS29aSWh2ZE1CUUlEQXdFd0RRWUxLb1pJaHZkTUJRSURBUUl3CkRBWUtZSVpJQVliOWJCTWZBVENCaFFZRFZSMGZCSDR3ZkRBOG9EcWdPSVkyYUhSMGNEb3ZMMk55YkRNdVpHbG4KYVdObGNuUXVZMjl0TDFSRlVrVk9RV1ZUWTJsbGJtTmxVR1Z5YzI5dVlXeERRVE11WTNKc01EeWdPcUE0aGpabwpkSFJ3T2k4dlkzSnNOQzVrYVdkcFkyVnlkQzVqYjIwdlZFVlNSVTVCWlZOamFXVnVZMlZRWlhKemIyNWhiRU5CCk15NWpjbXd3ZXdZSUt3WUJCUVVIQVFFRWJ6QnRNQ1FHQ0NzR0FRVUZCekFCaGhob2RIUndPaTh2YjJOemNDNWsKYVdkcFkyVnlkQzVqYjIwd1JRWUlLd1lCQlFVSE1BS0dPV2gwZEhBNkx5OWpZV05sY25SekxtUnBaMmxqWlhKMApMbU52YlM5VVJWSkZUa0ZsVTJOcFpXNWpaVkJsY25OdmJtRnNRMEV6TG1OeWREQU5CZ2txaGtpRzl3MEJBUXNGCkFBT0NBUUVBYTdkNDlCbTZVZWhDME1JY0lxMHNuY0pSN2dPUzhVdnRheG02V09GeTZ6aytoOEllWk82anBQUlgKMjBrMzRuMXFnV1g3azZpT0owNXo3U0VCLzZGRk9NdVA4aWxMcnpOVEVCR0duRURnektqM1lQbDhrdUVtL2R4dQpiSDBvVUpOTXBEV2wzR0NDTlhiV1VNS2szWExGeXJhL0hTamdmVDduR2grRlE1enlCRmd1bXVhTVduY0I4dUZiCjJHN0lJeUs4SXRBWlAzQ0NJS3ZQK0FRSjN6SWRiWTlWWld4TWEwd1YzdWF2WVp3TGY0Q2xLTUlqVDNiSkZDM0cKQ1RIektoZ3grdjRKWi8vQ0FHYVNjTkpQcm5XNExLRFZwcXVBQk5VVUovUWFnS09qVHh1WnJLOWJYQzNaT3NQTApiZURCU2E2MU5PTVZTMnNtQUxuOUI1V2xtSlNxVWc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==",
+                            "format": "textarea"
+                        },
+                        "login": {
+                            "type": "string",
+                            "title": "User login on HPC",
+                            "default": "plgsouley"
+                        },
+                        "pwd": {
+                            "type": "string",
+                            "title": "User pass on HPC",
+                            "default": "O9v4cE1vyx!"
+                        },
+                        "apikey": {
+                            "type": "string",
+                            "title": "API key for Xenon-flow",
+                            "default": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU291bGV5IE1hZG91Z291IiwiZW1haWwiOiJzLm1hZG91Z291QGVzY2llbmNlY2VudGVyLm5sIiwic3ViIjoiMTUiLCJpc3MiOiJJRUUiLCJpYXQiOjE1ODY0MDU3NjgsIm5iZiI6MTU4NjQwNTc2NywiZXhwIjoxNTg2NDA5MzY4fQ.RFP5wIHzUPrPuxzAqqO5QOPH8yEZ1TP4ZGWK2UOHMem0ajPq0j6ojhw2jXS9QLuYG1kice8IXOw-qGuc-vvSCA"
+                        },
+                        "cfgsrc": {
+                            "type": "string",
+                            "title": "Pipeline configuration template path",
+                            "default": "/net/people/plgsouley/templates/pipeline-default.cfg"
+                        },
+                        "prefactor": {
+                            "type": "string",
+                            "title": "Path to local PREFACTOR installation",
+                            "default": "/net/people/plgsouley/prefactor"
+                        },
+                        "pf_out": {
+                            "type": "string",
+                            "title": "Local PREFACTOR output directory",
+                            "default": "/net/archive/groups/plggprocess/UC2/test/pf_out"
+                        },
+                        "workdir": {
+                            "type": "string",
+                            "title": "Working directory",
+                            "default": "/net/archive/groups/plggprocess/UC2/test"
+                        },
+                        "datadir": {
+                            "type": "string",
+                            "title": "Directory where transferred observations will be stored",
+                            "default": "/net/archive/groups/plggprocess/UC2/PROCESS"
+                        },
+                        "container": {
+                            "type": "string",
+                            "title": "Path to the container image to be run",
+                            "default": "/net/archive/groups/plggprocess/UC2/factor.sif"
+                        },
+                        "binddir": {
+                            "type": "string",
+                            "title": "Root directory bound with the container",
+                            "default": "/net/archive/groups/plggprocess/UC2"
+                        },
+                        "fac_src": {
+                            "type": "string",
+                            "title": "Directory of FACTOR parset to be customised",
+                            "default": "/net/people/plgsouley/templates/factor-def.parset"
+                        },
+                        "WMS": {
+                            "type": "string",
+                            "title": "Workload management system in use",
+                            "default": "SLURM"
+                        }
+                    },
+                    "required": [
+                        "headnode",
+                        "path",
+                        "url",
+                        "srmcert",
+                        "login",
+                        "pwd",
+                        "xenon",
+                        "apikey",
+                        "cfgsrc",
+                        "prefactor",
+                        "pf_out",
+                        "workdir",
+                        "datadir",
+                        "container",
+                        "binddir",
+                        "fac_src",
+                        "WMS"
+                    ],
+                    "collapsed": true,
+                    "propertyOrder": 4
+                },
+                "workflow": {
+                    "type": "string",
+                    "title": "Workflow name as seen by Xenon-flow",
+                    "default": "pxximg",
+                    "propertyOrder": 1
+                },
+                "cwl": {
+                    "type": "string",
+                    "title": "CWL description file of the workflow",
+                    "default": "uc2-factor.cwl",
+                    "propertyOrder": 2
+                }
+            },
+            "required": [
+                "staging",
+                "hpc",
+                "workflow",
+                "cwl"
+            ]
+        },
+        "id": "IEEFACTOR"
+    }
+}
