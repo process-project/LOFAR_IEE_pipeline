@@ -1,6 +1,6 @@
 {
     "IEEFACTOR": {
-        "label": "LOFAR IEE pipeline",
+        "label": "UC2 IEE pipeline",
         "schema": {
             "type": "object",
             "title": "Configuration Parameters:",
@@ -12,19 +12,19 @@
                         "url": {
                             "type": "string",
                             "title": "Staging service URL",
-                            "default": "",
+                            "default": "<STAGING_SERVICE_URL>",
                             "readonly": true
                         },
                         "login": {
                             "type": "string",
                             "title": "User login on LTA",
-                            "default": "",
+                            "default": "<LTA_LOGIN>",
                             "readonly": true
                         },
                         "pwd": {
                             "type": "string",
                             "title": "User pass on LTA",
-                            "default": "{{YOUR_LTA_PWD}}",
+                            "default": "<LTA_PWD>",
                             "readonly": true
                         }
                     },
@@ -33,7 +33,7 @@
                         "login",
                         "pwd"
                     ],
-                    "collapsed": true,
+                    "collapsed": false,
                     "propertyOrder": 3
                 },
                 "hpc": {
@@ -42,88 +42,58 @@
                         "headnode": {
                             "type": "string",
                             "title": "HPC head node",
-                            "default": "fs0.das5.cs.vu.nl"
+                            "default": "<HPC_HEADNODE>"
                         },
                         "path": {
                             "type": "string",
                             "title": "Where observation will be transferred to on HPC",
-                            "default": ""
+                            "default": "<YOUR_DATADIR>"
                         },
                         "url": {
                             "type": "string",
                             "title": "Download service URL",
-                            "default": "http://lobcder.process-project.eu:31888"
+                            "default": "<TRANSFER_SERVICE_URL>"
                         },
                         "srmcert": {
                             "type": "string",
                             "title": "SRM certificate for transfer",
-                            "default": "{{YOUR_PACKED_BASE64_CERTIFICATE}}",
+                            "default": "<CERTIFICATE_CONTENT>",
                             "format": "textarea"
                         },
                         "login": {
                             "type": "string",
                             "title": "User login on HPC",
-                            "default": ""
+                            "default": "<HPC_LOGIN>"
                         },
                         "pwd": {
                             "type": "string",
                             "title": "User pass on HPC",
-                            "default": "{{YOUR_HPC_PWD}}"
-                        },
-                        "xenon": {
-                            "type": "string",
-                            "title": "Where Xenon-flow server is running",
-                            "default": "http://localhost:8443"
+                            "default": "<HPC_PWD>"
                         },
                         "apikey": {
                             "type": "string",
-                            "title": "API key for Xenon-flow",
-                            "default": "in1uP28Y1Et9YGp95VLYzhm5Jgd5M1r0CKI7326RHwbVcHGa"
+                            "title": "API key for IEE connection (JWT)",
+                            "default": "<IEE_JWT>"
                         },
-                        "cfgsrc": {
+                        "factordir": {
                             "type": "string",
-                            "title": "Pipeline configuration template path",
-                            "default": ""
-                        },
-                        "prefactor": {
-                            "type": "string",
-                            "title": "Path to local PREFACTOR installation",
-                            "default": ""
-                        },
-                        "pf_out": {
-                            "type": "string",
-                            "title": "Local PREFACTOR output directory",
-                            "default": ""
+                            "title": "FACTOR working directory",
+                            "default": "/mnt/out/factor"
                         },
                         "workdir": {
                             "type": "string",
                             "title": "Working directory",
-                            "default": ""
+                            "default": "/mnt/workdir/test"
                         },
                         "datadir": {
                             "type": "string",
                             "title": "Directory where transferred observations will be stored",
-                            "default": ""
+                            "default": "/mnt/in"
                         },
                         "container": {
                             "type": "string",
-                            "title": "Path to the container image to be run",
-                            "default": ""
-                        },
-                        "binddir": {
-                            "type": "string",
-                            "title": "Root directory bound with the container",
-                            "default": ""
-                        },
-                        "fac_src": {
-                            "type": "string",
-                            "title": "Directory of FACTOR parset to be customised",
-                            "default": ""
-                        },
-                        "WMS": {
-                            "type": "string",
-                            "title": "Workload management system in use",
-                            "default": "SLURM"
+                            "title": "Container image to be run",
+                            "default": "<YOUR_CONTAINER_NAME>"
                         }
                     },
                     "required": [
@@ -133,39 +103,19 @@
                         "srmcert",
                         "login",
                         "pwd",
-                        "xenon",
                         "apikey",
-                        "cfgsrc",
-                        "prefactor",
-                        "pf_out",
+                        "factordir",
                         "workdir",
                         "datadir",
-                        "container",
-                        "binddir",
-                        "fac_src",
-                        "WMS"
+                        "container"
                     ],
-                    "collapsed": true,
+                    "collapsed": false,
                     "propertyOrder": 4
-                },
-                "workflow": {
-                    "type": "string",
-                    "title": "Workflow name as seen by Xenon-flow",
-                    "default": "ddcfac",
-                    "propertyOrder": 1
-                },
-                "cwl": {
-                    "type": "string",
-                    "title": "CWL description file of the workflow",
-                    "default": "process-uc2v3.cwl",
-                    "propertyOrder": 2
                 }
             },
             "required": [
                 "staging",
-                "hpc",
-                "workflow",
-                "cwl"
+                "hpc"
             ]
         },
         "id": "IEEFACTOR"
