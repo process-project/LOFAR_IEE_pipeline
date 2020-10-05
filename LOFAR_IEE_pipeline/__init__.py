@@ -41,10 +41,10 @@ def run_pipeline(observation, observation2, **kargs):
         if re.search('SB0[0|1]', tfile):
             srmuris.append(tfile)
 
-url = '/stage'
-    headers = {
-        'Content-Type': 'application/json',
-}
+    url = '/stage'
+        headers = {
+            'Content-Type': 'application/json',
+    }
     
     data = {
         "id": "staging",
@@ -59,7 +59,7 @@ url = '/stage'
         },
         #        "webhook": {"method": "post", "url": webhook, "headers": {}},
         "options": {},
-}
+    }
     
     #    print(kargs)
     for kw in kargs:
@@ -67,14 +67,14 @@ url = '/stage'
             url = kargs[kw]["url"] + url
             data["cmd"]["credentials"]["lofarUsername"] = kargs[kw]["login"]
             data["cmd"]["credentials"]["lofarPassword"] = kargs[kw]["pwd"]
-reqData = json.dumps(data)
-print("===REQ URL=", url)
-print("===REQ DATA=", reqData)
+    reqData = json.dumps(data)
+    print("===REQ URL=", url)
+    print("===REQ DATA=", reqData)
 #    res = requests.post(url, headers=headers, data=reqData)
 #    print(res)
 #    res_data = json.loads(res.content.decode("utf8"))
 #    print("Your staging request ID is ", str(res_data["requestId"]))
-res = ""
+    res = ""
     return res
 
 
