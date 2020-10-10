@@ -42,8 +42,8 @@ def run_pipeline(observation, observation2, **kargs):
             srmuris.append(tfile)
 
     url = '/stage'
-        headers = {
-            'Content-Type': 'application/json',
+    headers = {
+        'Content-Type': 'application/json',
     }
     
     data = {
