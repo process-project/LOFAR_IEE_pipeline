@@ -94,6 +94,16 @@
                             "type": "string",
                             "title": "Container image to be run",
                             "default": "<YOUR_CONTAINER_NAME>"
+                        },
+                        "compute_site": {
+                            "type": "string",
+                            "title": "PROCESS computing site name",
+                            "default": "Cyfronet: Prometheus"
+                        },
+                        "webdav_pwd": {
+                            "type": "string",
+                            "title": "LOBCDER WebDAV UC2 results endpoint pass",
+                            "default": "7why4dks"
                         }
                     },
                     "required": [
@@ -107,7 +117,9 @@
                         "factordir",
                         "workdir",
                         "datadir",
-                        "container"
+                        "container",
+                        "compute_site",
+                        "webdav_pwd"
                     ],
                     "collapsed": false,
                     "propertyOrder": 4
