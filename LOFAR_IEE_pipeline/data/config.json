@@ -4,61 +4,20 @@
         "schema": {
             "type": "object",
             "title": "Configuration Parameters:",
-            "description": "This is PROCESS UC2 IEE pipeline for LOFAR observation calibration and imaging",
+            "description": "This is PROCESS UC2 pipeline using IEE for LOFAR observation calibration and imaging",
             "properties": {
-                "staging": {
-                    "type": "object",
-                    "properties": {
-                        "url": {
-                            "type": "string",
-                            "title": "Staging service URL",
-                            "default": "<STAGING_SERVICE_URL>",
-                            "readonly": true
-                        },
-                        "login": {
-                            "type": "string",
-                            "title": "User login on LTA",
-                            "default": "<LTA_LOGIN>",
-                            "readonly": true
-                        },
-                        "pwd": {
-                            "type": "string",
-                            "title": "User pass on LTA",
-                            "default": "<LTA_PWD>",
-                            "readonly": true
-                        }
-                    },
-                    "required": [
-                        "url",
-                        "login",
-                        "pwd"
-                    ],
-                    "collapsed": false,
-                    "propertyOrder": 3
-                },
                 "hpc": {
                     "type": "object",
                     "properties": {
                         "headnode": {
                             "type": "string",
                             "title": "HPC head node",
-                            "default": "<HPC_HEADNODE>"
-                        },
-                        "path": {
-                            "type": "string",
-                            "title": "Where observation will be transferred to on HPC",
-                            "default": "<YOUR_DATADIR>"
+                            "default": "pro.cyfronet.pl"
                         },
                         "url": {
                             "type": "string",
                             "title": "Download service URL",
-                            "default": "<TRANSFER_SERVICE_URL>"
-                        },
-                        "srmcert": {
-                            "type": "string",
-                            "title": "SRM certificate for transfer",
-                            "default": "<CERTIFICATE_CONTENT>",
-                            "format": "textarea"
+                            "default": "http://lobcder.process-project.eu:8090"
                         },
                         "login": {
                             "type": "string",
@@ -70,9 +29,14 @@
                             "title": "User pass on HPC",
                             "default": "<HPC_PWD>"
                         },
+                        "serviceurl": {
+                            "type": "string",
+                            "title": "IEE Web service URL",
+                            "default": "https://process-dev.cyfronet.pl/api/projects/UC2/pipelines/workaround_lofar_pipeline/computations"
+                        },
                         "apikey": {
                             "type": "string",
-                            "title": "API key for IEE connection (JWT)",
+                            "title": "IEE security token (JWT)",
                             "default": "<IEE_JWT>"
                         },
                         "factordir": {
@@ -92,8 +56,8 @@
                         },
                         "container": {
                             "type": "string",
-                            "title": "Container image to be run",
-                            "default": "<YOUR_CONTAINER_NAME>"
+                            "title": "Name of the container image to be run",
+                            "default": "workaround_uc2_factor_fast.sif"
                         },
                         "compute_site": {
                             "type": "string",
@@ -103,16 +67,15 @@
                         "webdav_pwd": {
                             "type": "string",
                             "title": "LOBCDER WebDAV UC2 results endpoint pass",
-                            "default": "7why4dks"
+                            "default": ""
                         }
                     },
                     "required": [
                         "headnode",
-                        "path",
                         "url",
-                        "srmcert",
                         "login",
                         "pwd",
+                        "serviceurl",
                         "apikey",
                         "factordir",
                         "workdir",
@@ -122,11 +85,10 @@
                         "webdav_pwd"
                     ],
                     "collapsed": false,
-                    "propertyOrder": 4
+                    "propertyOrder": 1
                 }
             },
             "required": [
-                "staging",
                 "hpc"
             ]
         },
